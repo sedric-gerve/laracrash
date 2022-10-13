@@ -27,5 +27,9 @@ use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
 
 //all listings
 Route::get('/',[ListingController::class, 'index']);
+//show create form
+Route::get('/listings/create',[ListingController::class, 'create']);
 //single listings
 Route::get('/listings/{listing}',[ListingController::class, 'show']);
+
+
