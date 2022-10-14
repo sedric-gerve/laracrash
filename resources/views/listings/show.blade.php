@@ -4,7 +4,7 @@
 <div class="mx-4">
     <x-card class="p-10">
         <div class="flex flex-col items-center justify-center text-center">
-            <img class="w-48 mr-6 mb-6" src="{{asset('images/acme.png')}}" alt="pas de photos">
+            <img class="w-48 mr-6 mb-6" src="{{asset('images/nature-2-26-17.jpg ')}}" alt="pas de photos">
             <h3 class="text-2xl mb-2">
               {{$listing->title}}
             </h3>
