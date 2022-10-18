@@ -6,14 +6,14 @@
     </div>
     <div class="z-10">
         <h1 class="text-6xl font-bold uppercase text-white">
-            lara <span class="text-black">Gigs</span>
+            lara<span class="text-black">Gigs</span>
         </h1>
         <p class="text-2xl text-gray-200 font-bold my-4">
             Find or Post Laravel jobs & projects
         </p>
-<div>
-    <a href="register.html" class="inline-block border-2 border-white text-white py-2 px-4
-    rounded-xl uppercase mt-2 hover:text-black hover:border-black">Sign Up ti List a Gigs</a>
+<div x-data="{poil: true}">
+    <a x-show="poil" href="register.html" class="inline-block border-2 border-white text-white py-2 px-4
+    rounded-xl uppercase mt-2 hover:text-black hover:border-black">Sign Up to List a Gigs</a>
 </div>
     </div>
 </section>

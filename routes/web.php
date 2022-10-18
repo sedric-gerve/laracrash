@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ListingController;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
 
 /*
@@ -25,13 +26,39 @@ use League\CommonMark\Extension\CommonMark\Node\Block\Heading;
 //update - Update listing
 //destroy - Delete listing
 
-//all listings
+//All Listings
 Route::get('/',[ListingController::class, 'index']);
-//show create form
-Route::get('/listings/create',[ListingController::class, 'create']);
-//Store listing Data
-Route::post('/listings',[ListingController::class, 'store']);
-//single listings
+//Show Create form
+Route::get('/listings/create',[ListingController::class, 'create'])->middleware('auth');
+//Store Listing Data
+Route::post('/listings',[ListingController::class, 'store'])->middleware('auth');
+//Show Edit form
+Route::get('/listings/{listing}/edit',[ListingController::class, 'edit'])->middleware('auth');
+//Update Listing
+Route::put('/listings/{listing}',[ListingController::class, 'update'])->middleware('auth');
+//Delete Listing
+Route::delete('/listings/{listing}',[ListingController::class, 'destroy'])->middleware('auth');
+// Manage Listing
+Route::get('/listings/manage',[ListingController::class, 'manage'])->middleware('auth');
+//Single Listing
 Route::get('/listings/{listing}',[ListingController::class, 'show']);
+//Show Register/Create Form
+Route::get('/register',[UserController::class, 'create'])->middleware('guest');
+//Create new User
+Route::post('/users',[UserController::class, 'store']);
+// Log User Out
+Route::post('/logout',[UserController::class, 'logout'])->middleware('auth');
+// Show Login Form
+Route::get('/login',[UserController::class, 'login'])->name('login')->middleware('guest');
+// Log In User
+Route::post('/users/authenticate',[UserController::class, 'authenticate']);
+
+
+ 
+
+
+
+
+
 
 
